@@ -8,8 +8,6 @@
     var month = process.argv[3];
     var year = +process.argv[4];
 
-    // (1 <= year <= 2999) || (1 <= day <= 31)
-
     if(( year <= 2999 && year >= 1) && (day >= 1 && day <= 31)){
         switch (month) {
             case 'января' :
