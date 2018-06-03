@@ -3,7 +3,7 @@
 /* Put your code here */
 
 (function () {
-    var alpha = 'abcdefghijklmnopqrstuvwxyz';
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
     // Соберем данные
     var i = process.argv[2];
@@ -15,17 +15,21 @@
 
     // Теперь переведем из 10й в любую другую
     var m;
+    var result = [];
     while(x > 0){
         m = ~~(x%b); // остаток
         x = ~~(x/b); // Целая часть
 
+        // Кодирование чисел
+        m = m >= 10 ? alphabet[m-10] : m.toString();
 
-        m = m >= 10 ? alpha[m-10] : m.toString();
-
-        console.log(m, typeof(m));
+        // пушим в массив
+        result.push(m);
     }
 
-    console.log();
+    result = result.reverse().join('');
+
+    process.stdout.write(result);
 
 })();
 
