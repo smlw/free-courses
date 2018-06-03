@@ -27,13 +27,18 @@
         var sTitle = declOfNum(s,[' секунда',' секунды',' секунд']);
 
         // Output results
+        var res;
+
+
         if(h > 0){
-            console.log(h + hTitle, m + mTitle, s + sTitle)
+            res = ((h + hTitle) + ' ' + (m + mTitle) + ' ' + (s + sTitle)).toString();
         } else if (m > 0){
-            console.log(m + mTitle, s + sTitle)
+            res = ((m + mTitle) + ' ' + (s + sTitle)).toString();
         }else {
-            console.log(s + sTitle)
+            res = (s + sTitle).toString();
         }
+
+        process.stdout.write(res);
     } else {
         console.log('Error')
     }
