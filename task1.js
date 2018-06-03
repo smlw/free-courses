@@ -10,26 +10,32 @@
     var a = +process.argv[3];
     var b = +process.argv[4];
 
-    // Переведем сначала в 10ю СС
-    var x = parseInt(i, a);
+    if((i <= 10000 && i >= 0) && (a >= 2) && (b <= 36 && b >= 2)){
+        // Переведем сначала в 10ю СС
+        var x = parseInt(i, a);
 
-    // Теперь переведем из 10й в любую другую
-    var m;
-    var result = [];
-    while(x > 0){
-        m = ~~(x%b); // остаток
-        x = ~~(x/b); // Целая часть
+        // Теперь переведем из 10й в любую другую
+        var m;
+        var result = [];
+        while(x > 0){
+            m = ~~(x%b); // остаток
+            x = ~~(x/b); // Целая часть
 
-        // Кодирование чисел
-        m = m >= 10 ? alphabet[m-10] : m.toString();
+            // Кодирование чисел
+            m = m >= 10 ? alphabet[m-10] : m.toString();
 
-        // пушим в массив
-        result.push(m);
+            // пушим в массив
+            result.push(m);
+        }
+
+        result = result.reverse().join('');
+
+        process.stdout.write(result);
+    } else {
+        console.log('Error')
     }
 
-    result = result.reverse().join('');
 
-    process.stdout.write(result);
 
 })();
 
