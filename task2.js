@@ -10,7 +10,7 @@
 
     // (1 <= year <= 2999) || (1 <= day <= 31)
 
-    if(( year <= 2999 && year >= 1)){
+    if(( year <= 2999 && year >= 1) && (day >= 1 && day <= 31)){
         switch (month) {
             case 'января' :
                 month = 0;
@@ -57,9 +57,9 @@
         var endDate = new Date("12/31/2018");
 
         var time = Math.abs(endDate.getTime() - startDate.getTime());
-        var days = Math.ceil(time / (1000 * 3600 * 24));
+        var days = Math.ceil(time / (1000 * 3600 * 24)).toString();
 
-        console.log(days);
+        process.stdout.write(days);
 
     } else {
         console.log('Error')
