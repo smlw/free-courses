@@ -2,16 +2,21 @@
 
 /* Put your code here */
 
-var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-
 // Соберем данные
-var i = process.argv[2];
+var i = +process.argv[2];
 var a = +process.argv[3];
 var b = +process.argv[4];
 
-if((i <= 10000 && i >= 0) && (a >= 2 && a <= 32) && (b <= 32 && b >= 2)){
-    // Переведем сначала в 10ю СС
-    var x = parseInt(i, a);
+if((i >= 0 && i <= 10000) && (a >= 2 && a <= 32) && (b >= 2 && b <= 32)){
+
+    i = i.toString();
+
+    // Переводим в десятичную
+    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
+    var x = 0;
+    for(var k=0; k<i.length; k++){
+        x += alphabet.indexOf(i[k]) * Math.pow(a, i.length - k - 1);
+    }
 
     // Теперь переведем из 10й в любую другую
     var m;
@@ -21,7 +26,7 @@ if((i <= 10000 && i >= 0) && (a >= 2 && a <= 32) && (b <= 32 && b >= 2)){
         x = ~~(x/b); // Целая часть
 
         // Кодирование чисел
-        m = m >= 10 ? alphabet[m-10] : m.toString();
+        m = m >= 10 ? alphabet[m] : m;
 
         // пушим в массив
         result.push(m);
@@ -31,7 +36,6 @@ if((i <= 10000 && i >= 0) && (a >= 2 && a <= 32) && (b <= 32 && b >= 2)){
 
     process.stdout.write(result);
 }
-
 
 
 
