@@ -10,7 +10,8 @@ var year = +process.argv[4];
 var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 month = months.indexOf(month) + 1;
 
-if(( year <= 2999 && year >= 1) && (day >= 1 && day <= 31)){
+
+if(( year <= 2999 && year >= 1) && (day >= 1 && day <= 31) && (month >= 1 && month <= 12)){
 
     function f(x,y) {
         return 28 + (x + Math.floor(x / 8)) % 2 + 2 % x + Math.floor((2 - ((y % 4) * ((y % 100) + (y % 400)) + 2) % ((y % 4) * ((y % 100) + (y % 400)) + 1)) / x) + Math.floor(1/x) - Math.floor((1 - ((y % 4) * ((y % 100) + (y % 400)) + 2) % ((y % 4) * ((y % 100) + (y % 400)) + 1))/x);
@@ -24,6 +25,7 @@ if(( year <= 2999 && year >= 1) && (day >= 1 && day <= 31)){
             total = total + daysInMonth;
         }
         total = total - day;
+
 
         return total.toString();
     }
