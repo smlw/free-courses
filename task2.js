@@ -4,7 +4,7 @@
 
 
 var day = +process.argv[2];
-var month = process.argv[3];
+var month = process.argv[3].toLowerCase();
 var year = +process.argv[4];
 
 var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
