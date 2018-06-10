@@ -7,10 +7,24 @@ var i = +process.argv[2];
 var a = +process.argv[3];
 var b = +process.argv[4];
 
-if((i >= 0 && i <= 10000) && (a >= 2 && a <= 32) && (b >= 2 && b <= 32)){
+
+// проверяем недопустимые числа
+function arrayMax(arr) {
+    var len = arr.length, max = -Infinity;
+    while (len--) {
+        if (arr[len] > max) {
+            max = arr[len];
+        }
+    }
+    return max;
+}
+
+var arr = i.toString().split('');
+var maxNum = arrayMax(arr);
+
+if((i >= 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxNum < a)){
 
     i = i.toString();
-
     // Переводим в десятичную
     var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
     var x = 0;
