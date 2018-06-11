@@ -22,7 +22,7 @@ function arrayMax(arr) {
 var arr = i.toString().split('');
 var maxNum = arrayMax(arr);
 
-if((i >= 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxNum < a)){
+if((i >= 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxNum < a) && Number.isInteger(i) && Number.isInteger(a) && Number.isInteger(b) ){
 
     i = i.toString();
     // Переводим в десятичную
