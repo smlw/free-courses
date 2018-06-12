@@ -7,30 +7,35 @@ var i = +process.argv[2];
 var a = +process.argv[3];
 var b = +process.argv[4];
 
+// Проверяем допустимые символы
+if(Number.isInteger(i) && Number.isInteger(a) && Number.isInteger(b)){
 
-// проверяем недопустимые числа
-function arrayMax(arr) {
-    var len = arr.length, max = -Infinity;
-    while (len--) {
-        if (arr[len] > max) {
-            max = arr[len];
+    function arrayMax(arr) {
+        var len = arr.length, max = -Infinity;
+        while (len--) {
+            if (arr[len] > max) {
+                max = arr[len];
+            }
         }
+        return max;
     }
-    return max;
+
+    var arr = i.toString().split('');
+    var maxNum = arrayMax(arr);
 }
 
-var arr = i.toString().split('');
-var maxNum = arrayMax(arr);
 
-if((i >= 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxNum < a) && Number.isInteger(i) && Number.isInteger(a) && Number.isInteger(b) ){
+if((i > 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxNum < a)){
 
     i = i.toString();
+
     // Переводим в десятичную
-    var alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
+    var alphabet = '0123456789abcdefghijklmnopqrstuvwxyz';
     var x = 0;
     for(var k=0; k<i.length; k++){
         x += alphabet.indexOf(i[k]) * Math.pow(a, i.length - k - 1);
     }
+
 
     // Теперь переведем из 10й в любую другую
     var m;
@@ -49,6 +54,10 @@ if((i >= 0 && i <= 10000) && (a >= 2 && a <= 36) && (b >= 2 && b <= 36) && (maxN
     result = result.reverse().join('').toString();
 
     process.stdout.write(result);
+} else if(i === 0){
+    process.stdout.write(i.toString());
+} else {
+    process.stdout.write('Error');
 }
 
 
